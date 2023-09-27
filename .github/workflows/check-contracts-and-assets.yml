@@ -28,7 +28,7 @@ jobs:
           fi
       - name: Validate Contracts
         if: ${{ env.SKIP_VALIDATION  != 'true' }}
-        uses: gabledata/cicd/github-actions/validate-contracts@latest
+        uses: gabledata/cicd/github-actions/validate-contracts@14a3809b2ce55e7e9e0cff604a9cebd3c8562060
         with:
           # Provide API key secret, and endpoint variable created in previous steps
           gable-api-key: ${{secrets.GABLE_API_KEY}}
@@ -43,7 +43,7 @@ jobs:
     name: 'Check Data Assets Against Contracts'
     steps:
       - name: Check Protobuf Data Assets
-        uses: gabledata/cicd/github-actions/check-data-assets@latest
+        uses: gabledata/cicd/github-actions/check-data-assets@14a3809b2ce55e7e9e0cff604a9cebd3c8562060
         with:
             # Provide API key secret, and endpoint variable created in previous steps
             gable-api-key: ${{secrets.GABLE_API_KEY}}
@@ -55,7 +55,7 @@ jobs:
               --source-type protobuf \
               --files ./event_schemas/*.proto
       - name: Check Avro Data Assets
-        uses: gabledata/cicd/github-actions/check-data-assets@latest
+        uses: gabledata/cicd/github-actions/check-data-assets@14a3809b2ce55e7e9e0cff604a9cebd3c8562060
         with:
             # Provide API key secret, and endpoint variable created in previous steps
             gable-api-key: ${{secrets.GABLE_API_KEY}}
