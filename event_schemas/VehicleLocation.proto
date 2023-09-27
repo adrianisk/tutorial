@@ -5,10 +5,10 @@ package transit;
 message VehicleLocationEvent {
   required string agencyId = 1;
   required string vehicleId = 2;
-  required int64 timestamp = 3;
-  required double latitude = 4;
-  required double longitude = 5;
+  required Timestamp timestamp = 3;
+  required float latitude = 4;
+  required float longitude = 5;
   required string status = 6;
   optional string routeId = 7;
-  optional int32 occupancyLevel = 8;
+  optional uint32 occupancyLevel = 8;
 }
