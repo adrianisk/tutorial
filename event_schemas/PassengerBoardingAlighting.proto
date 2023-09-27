@@ -4,8 +4,8 @@ package transit;
 
 message PassengerBoardingAlightingEvent {
   required string stopId = 1;
-  required string vehicleId = 2;
-  required Timestamp timestamp = 3;
-  required uint32 passengersBoarding = 4;
-  required uint32 passengersAlighting = 5;
+  required int32 vehicleId = 2;
+  required int64 timestamp = 3;
+  optional int32 passengersBoarding = 4;
+  optional int32 passengersAlighting = 5;
 }
