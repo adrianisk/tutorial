@@ -78,6 +78,7 @@ jobs:
             # Provide API key and endpoint secrets
             gable-api-key: ${{secrets.GABLE_API_KEY}}
             gable-api-endpoint: ${{secrets.GABLE_API_ENDPOINT}}
+            allow-gable-pre-release: true
             # List of paths to Avro files that should be checked with support for glob syntax. 
             # Can either be specified as a space separated list ('event1.proto event2.proto'), or 
             # a multiline string
