@@ -10,7 +10,7 @@
     },
     {
       "name": "routeId",
-      "type": "string",
+      "type": ["null", "string"],
       "doc": "Identifier for the current route"
     },
     {
