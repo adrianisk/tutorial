@@ -31,11 +31,12 @@ jobs:
           fi
       - name: Validate Contracts
         if: ${{ env.SKIP_VALIDATION  != 'true' }}
-        uses: gabledata/cicd/github-actions/validate-contracts@bd1a014e12c3aba126a64a50c5100edfa02d962e
+        uses: gabledata/cicd/github-actions/validate-contracts@0e8f60bc1f95b84480e720ec92b3fff22b3ca99d
         with:
           # Provide API key and endpoint secrets
           gable-api-key: ${{secrets.GABLE_API_KEY}}
           gable-api-endpoint: ${{secrets.GABLE_API_ENDPOINT}}
+          allow-gable-pre-release: true
           # List of paths to contract files that should be validated, with support for glob syntax.
           # Can either be specified as a space separated list ('contract1.yml contract2.yml'), or
           # a multiline string
@@ -43,11 +44,12 @@ jobs:
             ./contracts/*.yaml
       - name: Publish Contracts
         if: ${{ env.SKIP_VALIDATION  != 'true' }}
-        uses: gabledata/cicd/github-actions/publish-contracts@bd1a014e12c3aba126a64a50c5100edfa02d962e
+        uses: gabledata/cicd/github-actions/publish-contracts@0e8f60bc1f95b84480e720ec92b3fff22b3ca99d
         with:
           # Provide API key and endpoint secrets
           gable-api-key: ${{secrets.GABLE_API_KEY}}
           gable-api-endpoint: ${{secrets.GABLE_API_ENDPOINT}}
+          allow-gable-pre-release: true
           # List of paths to contract files that should be published, with support for glob syntax.
           # Can either be specified as a space separated list ('contract1.yml contract2.yml'), or
           # a multiline string
@@ -58,11 +60,12 @@ jobs:
     name: 'Register Data Assets'
     steps:
       - name: Register Protobuf Data Assets
-        uses: gabledata/cicd/github-actions/register-data-assets@bd1a014e12c3aba126a64a50c5100edfa02d962e
+        uses: gabledata/cicd/github-actions/register-data-assets@0e8f60bc1f95b84480e720ec92b3fff22b3ca99d
         with:
             # Provide API key and endpoint secrets
             gable-api-key: ${{secrets.GABLE_API_KEY}}
             gable-api-endpoint: ${{secrets.GABLE_API_ENDPOINT}}
+            allow-gable-pre-release: true
             # List of paths to Protobuf files that should be checked with support for glob syntax. 
             # Can either be specified as a space separated list ('event1.proto event2.proto'), or 
             # a multiline string
@@ -70,7 +73,7 @@ jobs:
               --source-type protobuf \
               --files ./event_schemas/*.proto
       - name: Register Avro Data Assets
-        uses: gabledata/cicd/github-actions/register-data-assets@bd1a014e12c3aba126a64a50c5100edfa02d962e
+        uses: gabledata/cicd/github-actions/register-data-assets@0e8f60bc1f95b84480e720ec92b3fff22b3ca99d
         with:
             # Provide API key and endpoint secrets
             gable-api-key: ${{secrets.GABLE_API_KEY}}
