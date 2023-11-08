@@ -36,6 +36,7 @@ jobs:
           # Provide API key and endpoint secrets
           gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
           gable-api-endpoint: ${{secrets.STABLE_GABLE_API_ENDPOINT}}
+          allow-gable-pre-release: true
           # List of paths to contract files that should be validated, with support for glob syntax.
           # Can either be specified as a space separated list ('contract1.yml contract2.yml'), or
           # a multiline string
@@ -48,6 +49,7 @@ jobs:
           # Provide API key and endpoint secrets
           gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
           gable-api-endpoint: ${{secrets.STABLE_GABLE_API_ENDPOINT}}
+          allow-gable-pre-release: true
           # List of paths to contract files that should be published, with support for glob syntax.
           # Can either be specified as a space separated list ('contract1.yml contract2.yml'), or
           # a multiline string
@@ -63,6 +65,7 @@ jobs:
             # Provide API key and endpoint secrets
             gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
             gable-api-endpoint: ${{secrets.STABLE_GABLE_API_ENDPOINT}}
+            allow-gable-pre-release: true
             # List of paths to Protobuf files that should be checked with support for glob syntax. 
             # Can either be specified as a space separated list ('event1.proto event2.proto'), or 
             # a multiline string
@@ -75,6 +78,7 @@ jobs:
             # Provide API key and endpoint secrets
             gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
             gable-api-endpoint: ${{secrets.STABLE_GABLE_API_ENDPOINT}}
+            allow-gable-pre-release: true
             # List of paths to Avro files that should be checked with support for glob syntax. 
             # Can either be specified as a space separated list ('event1.proto event2.proto'), or 
             # a multiline string
