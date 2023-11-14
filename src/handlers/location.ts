@@ -41,20 +41,17 @@ export default class TutorialController {
 
   async update(req: Request, res: Response) {
     try {
-      // Don't publish events that are missing location
-      if(req.body.latitude && req.body.longitude) {
-        // Emit a VehicleLocation event
-        const locationEvent = {
-          agencyId: req.body.agencyId,
-          vehicleId: req.body.vehicleId,
-          routeId: req.body.routeId,
-          latitude: req.body.latitude,
-          longitude: req.body.longitude,
-          occupancyLevel: req.body.occupancyLevel,
-          timestamp: new Date(),
-        }
+      // Emit a VehicleLocation event
+      const locationEvent = {
+        agencyId: req.body.agencyId,
+        vehicleId: req.body.vehicleId,
+        routeId: req.body.routeId,
+        latitude: req.body.latitude,
+        longitude: req.body.longitude,
+        occupancyLevel: req.body.occupancyLevel,
+        timestamp: new Date(),
       }
-
+      
       res.status(200).json({
         message: "Success",
       });
