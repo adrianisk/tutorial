@@ -31,11 +31,12 @@ jobs:
           fi
       - name: Validate Contracts
         if: ${{ env.SKIP_VALIDATION  != 'true' }}
-        uses: gabledata/cicd/github-actions/validate-contracts@latest
+        uses: gabledata/cicd/github-actions/validate-contracts@adriank/notification_level_update
         with:
+          allow-gable-pre-release: true
           # Provide API key and endpoint secrets
-          gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
-          gable-api-endpoint: ${{secrets.STABLE_GABLE_API_ENDPOINT}}
+          gable-api-key: ${{secrets.GABLE_API_KEY}}
+          gable-api-endpoint: ${{secrets.GABLE_API_ENDPOINT}}
           # List of paths to contract files that should be validated, with support for glob syntax.
           # Can either be specified as a space separated list ('contract1.yml contract2.yml'), or
           # a multiline string
@@ -43,11 +44,12 @@ jobs:
             ./contracts/*.yaml
       - name: Publish Contracts
         if: ${{ env.SKIP_VALIDATION  != 'true' }}
-        uses: gabledata/cicd/github-actions/publish-contracts@latest
+        uses: gabledata/cicd/github-actions/publish-contracts@adriank/notification_level_update
         with:
+          allow-gable-pre-release: true
           # Provide API key and endpoint secrets
-          gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
-          gable-api-endpoint: ${{secrets.STABLE_GABLE_API_ENDPOINT}}
+          gable-api-key: ${{secrets.GABLE_API_KEY}}
+          gable-api-endpoint: ${{secrets.GABLE_API_ENDPOINT}}
           # List of paths to contract files that should be published, with support for glob syntax.
           # Can either be specified as a space separated list ('contract1.yml contract2.yml'), or
           # a multiline string
@@ -88,11 +90,12 @@ jobs:
         run: poetry run alembic upgrade head
         shell: bash
       - name: Register Protobuf Data Assets
-        uses: gabledata/cicd/github-actions/register-data-assets@latest
+        uses: gabledata/cicd/github-actions/register-data-assets@adriank/notification_level_update
         with:
+            allow-gable-pre-release: true
             # Provide API key and endpoint secrets
-            gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
-            gable-api-endpoint: ${{secrets.STABLE_GABLE_API_ENDPOINT}}
+            gable-api-key: ${{secrets.GABLE_API_KEY}}
+            gable-api-endpoint: ${{secrets.GABLE_API_ENDPOINT}}
             # List of paths to Protobuf files that should be checked with support for glob syntax. 
             # Can either be specified as a space separated list ('event1.proto event2.proto'), or 
             # a multiline string
@@ -100,11 +103,12 @@ jobs:
               --source-type protobuf \
               --files ./event_schemas/*.proto
       - name: Register Avro Data Assets
-        uses: gabledata/cicd/github-actions/register-data-assets@latest
+        uses: gabledata/cicd/github-actions/register-data-assets@adriank/notification_level_update
         with:
+            allow-gable-pre-release: true
             # Provide API key and endpoint secrets
-            gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
-            gable-api-endpoint: ${{secrets.STABLE_GABLE_API_ENDPOINT}}
+            gable-api-key: ${{secrets.GABLE_API_KEY}}
+            gable-api-endpoint: ${{secrets.GABLE_API_ENDPOINT}}
             # List of paths to Avro files that should be checked with support for glob syntax. 
             # Can either be specified as a space separated list ('event1.proto event2.proto'), or 
             # a multiline string
@@ -112,11 +116,12 @@ jobs:
               --source-type avro \
               --files ./event_schemas/*.avsc
       - name: Register Postgres Data Assets
-        uses: gabledata/cicd/github-actions/register-data-assets@latest
+        uses: gabledata/cicd/github-actions/register-data-assets@adriank/notification_level_update
         with:
+            allow-gable-pre-release: true
             # Provide API key and endpoint secrets
-            gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
-            gable-api-endpoint: ${{secrets.STABLE_GABLE_API_ENDPOINT}}
+            gable-api-key: ${{secrets.GABLE_API_KEY}}
+            gable-api-endpoint: ${{secrets.GABLE_API_ENDPOINT}}
             # List of paths to Avro files that should be checked with support for glob syntax. 
             # Can either be specified as a space separated list ('event1.proto event2.proto'), or 
             # a multiline string
