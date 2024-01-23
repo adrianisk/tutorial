@@ -33,8 +33,7 @@ jobs:
         if: ${{ env.SKIP_VALIDATION  != 'true' }}
         uses: gabledata/cicd/github-actions/validate-contracts@adriank/notification_level_update
         with:
-          allow-gable-pre-release: true
-          # Provide API key and endpoint secrets
+                    # Provide API key and endpoint secrets
           gable-api-key: ${{secrets.GABLE_API_KEY}}
           gable-api-endpoint: ${{secrets.GABLE_API_ENDPOINT}}
           # List of paths to contract files that should be validated, with support for glob syntax.
@@ -46,8 +45,7 @@ jobs:
         if: ${{ env.SKIP_VALIDATION  != 'true' }}
         uses: gabledata/cicd/github-actions/publish-contracts@adriank/notification_level_update
         with:
-          allow-gable-pre-release: true
-          # Provide API key and endpoint secrets
+                    # Provide API key and endpoint secrets
           gable-api-key: ${{secrets.GABLE_API_KEY}}
           gable-api-endpoint: ${{secrets.GABLE_API_ENDPOINT}}
           # List of paths to contract files that should be published, with support for glob syntax.
@@ -92,8 +90,7 @@ jobs:
       - name: Register Protobuf Data Assets
         uses: gabledata/cicd/github-actions/register-data-assets@adriank/notification_level_update
         with:
-            allow-gable-pre-release: true
-            # Provide API key and endpoint secrets
+                        # Provide API key and endpoint secrets
             gable-api-key: ${{secrets.GABLE_API_KEY}}
             gable-api-endpoint: ${{secrets.GABLE_API_ENDPOINT}}
             # List of paths to Protobuf files that should be checked with support for glob syntax. 
@@ -105,8 +102,7 @@ jobs:
       - name: Register Avro Data Assets
         uses: gabledata/cicd/github-actions/register-data-assets@adriank/notification_level_update
         with:
-            allow-gable-pre-release: true
-            # Provide API key and endpoint secrets
+                        # Provide API key and endpoint secrets
             gable-api-key: ${{secrets.GABLE_API_KEY}}
             gable-api-endpoint: ${{secrets.GABLE_API_ENDPOINT}}
             # List of paths to Avro files that should be checked with support for glob syntax. 
@@ -118,8 +114,7 @@ jobs:
       - name: Register Postgres Data Assets
         uses: gabledata/cicd/github-actions/register-data-assets@adriank/notification_level_update
         with:
-            allow-gable-pre-release: true
-            # Provide API key and endpoint secrets
+                        # Provide API key and endpoint secrets
             gable-api-key: ${{secrets.GABLE_API_KEY}}
             gable-api-endpoint: ${{secrets.GABLE_API_ENDPOINT}}
             # List of paths to Avro files that should be checked with support for glob syntax. 
