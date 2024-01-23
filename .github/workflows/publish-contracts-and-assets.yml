@@ -112,7 +112,7 @@ jobs:
               --source-type avro \
               --files ./event_schemas/*.avsc
       - name: Register Postgres Data Assets
-        uses: gabledata/cicd/github-actions/register-data-assets@adriank/register_error
+        uses: gabledata/cicd/github-actions/register-data-assets@latest
         with:
             # Provide API key and endpoint secrets
             gable-api-key: ${{secrets.GABLE_API_KEY}}
