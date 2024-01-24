@@ -31,6 +31,7 @@ jobs:
         if: ${{ env.SKIP_VALIDATION  != 'true' }}
         uses: gabledata/cicd/github-actions/validate-contracts@adriank/contract_enforcement_level
         with:
+          allow-gable-pre-release: true
           # Provide API key secret, and endpoint variable created in previous steps
           gable-api-key: ${{secrets.STABLE_SANDBOX_GABLE_API_KEY}}
           gable-api-endpoint: ${{secrets.STABLE_SANDBOX_GABLE_API_ENDPOINT}}
@@ -76,6 +77,7 @@ jobs:
       - name: Check Protobuf Data Assets
         uses: gabledata/cicd/github-actions/check-data-assets@adriank/contract_enforcement_level
         with:
+            allow-gable-pre-release: true
             # Provide API key secret, and endpoint variable created in previous steps
             gable-api-key: ${{secrets.STABLE_SANDBOX_GABLE_API_KEY}}
             gable-api-endpoint: ${{secrets.STABLE_SANDBOX_GABLE_API_ENDPOINT}}
@@ -88,6 +90,7 @@ jobs:
       - name: Check Avro Data Assets
         uses: gabledata/cicd/github-actions/check-data-assets@adriank/contract_enforcement_level
         with:
+            allow-gable-pre-release: true
             # Provide API key secret, and endpoint variable created in previous steps
             gable-api-key: ${{secrets.STABLE_SANDBOX_GABLE_API_KEY}}
             gable-api-endpoint: ${{secrets.STABLE_SANDBOX_GABLE_API_ENDPOINT}}
@@ -100,6 +103,7 @@ jobs:
       - name: Check Postgres Data Assets
         uses: gabledata/cicd/github-actions/check-data-assets@adriank/contract_enforcement_level
         with:
+            allow-gable-pre-release: true
             # Provide API key secret, and endpoint variable created in previous steps
             gable-api-key: ${{secrets.STABLE_SANDBOX_GABLE_API_KEY}}
             gable-api-endpoint: ${{secrets.STABLE_SANDBOX_GABLE_API_ENDPOINT}}
