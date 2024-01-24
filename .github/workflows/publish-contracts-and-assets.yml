@@ -31,7 +31,7 @@ jobs:
           fi
       - name: Validate Contracts
         if: ${{ env.SKIP_VALIDATION  != 'true' }}
-        uses: gabledata/cicd/github-actions/validate-contracts@latest
+        uses: gabledata/cicd/github-actions/validate-contracts@adriank/contract_enforcement_level
         with:
           # Provide API key and endpoint secrets
           gable-api-key: ${{secrets.STABLE_SANDBOX_GABLE_API_KEY}}
@@ -43,7 +43,7 @@ jobs:
             ./contracts/*.yaml
       - name: Publish Contracts
         if: ${{ env.SKIP_VALIDATION  != 'true' }}
-        uses: gabledata/cicd/github-actions/publish-contracts@latest
+        uses: gabledata/cicd/github-actions/publish-contracts@adriank/contract_enforcement_level
         with:
           # Provide API key and endpoint secrets
           gable-api-key: ${{secrets.STABLE_SANDBOX_GABLE_API_KEY}}
@@ -88,7 +88,7 @@ jobs:
         run: poetry run alembic upgrade head
         shell: bash
       - name: Register Protobuf Data Assets
-        uses: gabledata/cicd/github-actions/register-data-assets@latest
+        uses: gabledata/cicd/github-actions/register-data-assets@adriank/contract_enforcement_level
         with:
             # Provide API key and endpoint secrets
             gable-api-key: ${{secrets.STABLE_SANDBOX_GABLE_API_KEY}}
@@ -100,7 +100,7 @@ jobs:
               --source-type protobuf \
               --files ./event_schemas/*.proto
       - name: Register Avro Data Assets
-        uses: gabledata/cicd/github-actions/register-data-assets@latest
+        uses: gabledata/cicd/github-actions/register-data-assets@adriank/contract_enforcement_level
         with:
             # Provide API key and endpoint secrets
             gable-api-key: ${{secrets.STABLE_SANDBOX_GABLE_API_KEY}}
@@ -112,7 +112,7 @@ jobs:
               --source-type avro \
               --files ./event_schemas/*.avsc
       - name: Register Postgres Data Assets
-        uses: gabledata/cicd/github-actions/register-data-assets@latest
+        uses: gabledata/cicd/github-actions/register-data-assets@adriank/contract_enforcement_level
         with:
             # Provide API key and endpoint secrets
             gable-api-key: ${{secrets.STABLE_SANDBOX_GABLE_API_KEY}}
