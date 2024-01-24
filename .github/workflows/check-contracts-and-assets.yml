@@ -29,8 +29,9 @@ jobs:
           fi
       - name: Validate Contracts
         if: ${{ env.SKIP_VALIDATION  != 'true' }}
-        uses: gabledata/cicd/github-actions/validate-contracts@latest
+        uses: gabledata/cicd/github-actions/validate-contracts@adriank/contract_enforcement_level 
         with:
+          allow-gable-pre-release: true
           # Provide API key secret, and endpoint variable created in previous steps
           gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
           gable-api-endpoint: ${{secrets.STABLE_GABLE_API_ENDPOINT}}
@@ -74,8 +75,9 @@ jobs:
         run: poetry run alembic upgrade head
         shell: bash
       - name: Check Protobuf Data Assets
-        uses: gabledata/cicd/github-actions/check-data-assets@latest
+        uses: gabledata/cicd/github-actions/check-data-assets@adriank/contract_enforcement_level 
         with:
+            allow-gable-pre-release: true
             # Provide API key secret, and endpoint variable created in previous steps
             gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
             gable-api-endpoint: ${{secrets.STABLE_GABLE_API_ENDPOINT}}
@@ -86,8 +88,9 @@ jobs:
               --source-type protobuf \
               --files ./event_schemas/*.proto
       - name: Check Avro Data Assets
-        uses: gabledata/cicd/github-actions/check-data-assets@latest
+        uses: gabledata/cicd/github-actions/check-data-assets@adriank/contract_enforcement_level 
         with:
+            allow-gable-pre-release: true
             # Provide API key secret, and endpoint variable created in previous steps
             gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
             gable-api-endpoint: ${{secrets.STABLE_GABLE_API_ENDPOINT}}
@@ -98,8 +101,9 @@ jobs:
               --source-type avro \
               --files ./event_schemas/*.avsc
       - name: Check Postgres Data Assets
-        uses: gabledata/cicd/github-actions/check-data-assets@latest
+        uses: gabledata/cicd/github-actions/check-data-assets@adriank/contract_enforcement_level 
         with:
+            allow-gable-pre-release: true
             # Provide API key secret, and endpoint variable created in previous steps
             gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
             gable-api-endpoint: ${{secrets.STABLE_GABLE_API_ENDPOINT}}
