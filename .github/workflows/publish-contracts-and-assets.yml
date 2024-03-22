@@ -99,7 +99,7 @@ jobs:
             # a multiline string
             data-asset-options: |
               --source-type protobuf \
-              --files ./event_schemas/*.proto  --debug
+              --files ./event_schemas/*.proto --trace
       - name: Register Avro Data Assets
         uses: gabledata/cicd/github-actions/register-data-assets@latest
         with:
@@ -111,7 +111,7 @@ jobs:
             # a multiline string
             data-asset-options: |
               --source-type avro \
-              --files ./event_schemas/*.avsc  --debug
+              --files ./event_schemas/*.avsc --trace
       - name: Register Postgres Data Assets
         uses: gabledata/cicd/github-actions/register-data-assets@latest
         with:
@@ -130,4 +130,4 @@ jobs:
               --proxy-host 0.0.0.0 \
               --proxy-port 5432 \
               --proxy-user postgres \
-              --proxy-password postgres  --debug
+              --proxy-password postgres --trace
