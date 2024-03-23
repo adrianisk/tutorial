@@ -84,7 +84,7 @@ jobs:
             # a multiline string
             data-asset-options: |
               --source-type protobuf \
-              --files ./event_schemas/*.proto --trace
+              --files ./event_schemas/*.proto
       - name: Check Avro Data Assets
         uses: gabledata/cicd/github-actions/check-data-assets@python_path
         with:
@@ -96,7 +96,7 @@ jobs:
             # a multiline string
             data-asset-options: |
               --source-type avro \
-              --files ./event_schemas/*.avsc --trace
+              --files ./event_schemas/*.avsc
       - name: Check Postgres Data Assets
         uses: gabledata/cicd/github-actions/check-data-assets@python_path
         with:
@@ -117,4 +117,4 @@ jobs:
               --proxy-db tutorial \
               --proxy-schema public \
               --proxy-user postgres \
-              --proxy-password postgres --trace
+              --proxy-password postgres
