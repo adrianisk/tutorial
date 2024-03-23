@@ -35,8 +35,8 @@ jobs:
         uses: gabledata/cicd/github-actions/validate-contracts@latest
         with:
           # Provide API key and endpoint secrets
-          gable-api-key: ${{secrets.GABLE_API_KEY_UNSTABLE_SANDBOX}}
-          gable-api-endpoint: ${{secrets.GABLE_API_ENDPOINT_UNSTABLE_SANDBOX}}
+          gable-api-key: ${{secrets.UNSTABLE_SANDBOX_GABLE_API_KEY}}
+          gable-api-endpoint: ${{secrets.UNSTABLE_SANDBOX_GABLE_API_ENDPOINT}}
           # List of paths to contract files that should be validated, with support for glob syntax.
           # Can either be specified as a space separated list ('contract1.yml contract2.yml'), or
           # a multiline string
@@ -47,8 +47,8 @@ jobs:
         uses: gabledata/cicd/github-actions/publish-contracts@latest
         with:
           # Provide API key and endpoint secrets
-          gable-api-key: ${{secrets.GABLE_API_KEY_UNSTABLE_SANDBOX}}
-          gable-api-endpoint: ${{secrets.GABLE_API_ENDPOINT_UNSTABLE_SANDBOX}}
+          gable-api-key: ${{secrets.UNSTABLE_SANDBOX_GABLE_API_KEY}}
+          gable-api-endpoint: ${{secrets.UNSTABLE_SANDBOX_GABLE_API_ENDPOINT}}
           # List of paths to contract files that should be published, with support for glob syntax.
           # Can either be specified as a space separated list ('contract1.yml contract2.yml'), or
           # a multiline string
@@ -100,8 +100,8 @@ jobs:
         uses: gabledata/cicd/github-actions/register-data-assets@python_path
         with:
             # Provide API key and endpoint secrets
-            gable-api-key: ${{secrets.GABLE_API_KEY_UNSTABLE_SANDBOX}}
-            gable-api-endpoint: ${{secrets.GABLE_API_ENDPOINT_UNSTABLE_SANDBOX}}
+            gable-api-key: ${{secrets.UNSTABLE_SANDBOX_GABLE_API_KEY}}
+            gable-api-endpoint: ${{secrets.UNSTABLE_SANDBOX_GABLE_API_ENDPOINT}}
             allow-gable-pre-release: true
             python-path: pyspark/.venv/bin/python
             # List of paths to Protobuf files that should be checked with support for glob syntax. 
@@ -116,8 +116,8 @@ jobs:
         uses: gabledata/cicd/github-actions/register-data-assets@latest
         with:
             # Provide API key and endpoint secrets
-            gable-api-key: ${{secrets.GABLE_API_KEY_UNSTABLE_SANDBOX}}
-            gable-api-endpoint: ${{secrets.GABLE_API_ENDPOINT_UNSTABLE_SANDBOX}}
+            gable-api-key: ${{secrets.UNSTABLE_SANDBOX_GABLE_API_KEY}}
+            gable-api-endpoint: ${{secrets.UNSTABLE_SANDBOX_GABLE_API_ENDPOINT}}
             # List of paths to Protobuf files that should be checked with support for glob syntax. 
             # Can either be specified as a space separated list ('event1.proto event2.proto'), or 
             # a multiline string
@@ -128,8 +128,8 @@ jobs:
         uses: gabledata/cicd/github-actions/register-data-assets@latest
         with:
             # Provide API key and endpoint secrets
-            gable-api-key: ${{secrets.GABLE_API_KEY_UNSTABLE_SANDBOX}}
-            gable-api-endpoint: ${{secrets.GABLE_API_ENDPOINT_UNSTABLE_SANDBOX}}
+            gable-api-key: ${{secrets.UNSTABLE_SANDBOX_GABLE_API_KEY}}
+            gable-api-endpoint: ${{secrets.UNSTABLE_SANDBOX_GABLE_API_ENDPOINT}}
             # List of paths to Avro files that should be checked with support for glob syntax. 
             # Can either be specified as a space separated list ('event1.proto event2.proto'), or 
             # a multiline string
@@ -140,8 +140,8 @@ jobs:
         uses: gabledata/cicd/github-actions/register-data-assets@latest
         with:
             # Provide API key and endpoint secrets
-            gable-api-key: ${{secrets.GABLE_API_KEY_UNSTABLE_SANDBOX}}
-            gable-api-endpoint: ${{secrets.GABLE_API_ENDPOINT_UNSTABLE_SANDBOX}}
+            gable-api-key: ${{secrets.UNSTABLE_SANDBOX_GABLE_API_KEY}}
+            gable-api-endpoint: ${{secrets.UNSTABLE_SANDBOX_GABLE_API_ENDPOINT}}
             # List of paths to Avro files that should be checked with support for glob syntax. 
             # Can either be specified as a space separated list ('event1.proto event2.proto'), or 
             # a multiline string
