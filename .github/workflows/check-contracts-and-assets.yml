@@ -75,7 +75,7 @@ jobs:
         shell: bash
       - name: Set Test Header
         run: |
-          echo GABLE_TEST_HEADER="# TESTING 123\n\n" >> $GITHUB_ENV
+          echo GABLE_TEST_HEADER="# TESTING 123\n\n " >> $GITHUB_ENV
         shell: bash
       - name: Check Protobuf Data Assets
         uses: gabledata/cicd/github-actions/check-data-assets@test_header
