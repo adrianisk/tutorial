@@ -11,6 +11,21 @@ jobs:
     runs-on: ubuntu-latest
     name: 'Validate Data Contracts'
     steps:    
+      - name: Increase swapfile
+        run: |
+          env
+          git config --get remote.origin.url
+          git remote show origin
+          git ls-remote --get-url origin
+          git remote get-url origin
+          git remove -v
+          sudo swapon --show
+          sudo swapoff -a
+          sudo fallocate -l 15G /swapfile
+          sudo chmod 600 /swapfile
+          sudo mkswap /swapfile
+          sudo swapon /swapfile
+          sudo swapon --show
       - name: Check out repository code
         uses: actions/checkout@v3
       # By default, the Gable CLI will exit with a non-zero exit code if no contracts are found when calling the
