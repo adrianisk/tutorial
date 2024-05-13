@@ -67,8 +67,14 @@ jobs:
         run: curl -sSL https://install.python-poetry.org | python3 -
         shell: bash
       - name: Install dependencies
-        run: poetry install
         shell: bash
+        run: |
+          # Install root level dependencies
+          poetry install
+          # Create a virtual environment for the PySpark project, install dependencies
+          python3 -m venv "pyspark/.venv"
+          pyspark/.venv/bin/pip install -r pyspark/requirements.txt
+          ls -la pyspark/.venv/bin
       - name: Run migrations from db_migrations directory
         working-directory: ./db_migrations
         run: poetry run alembic upgrade head
@@ -108,7 +114,7 @@ jobs:
               --source-type pyspark \
               --project-root pyspark \
               --csv-schema-file pyspark/schemas.csv \
-              --spark-job-entrypoint 'job.py --final_output_table pnw_bookings_30_days' --debug
+              --spark-job-entrypoint 'job.py --final_output_table pnw_bookings_30_days' --trace
       - name: Check Postgres Data Assets
         uses: gabledata/cicd/github-actions/check-data-assets@main
         with:
