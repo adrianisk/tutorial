@@ -14,11 +14,6 @@ app.post('/cart', (req, res) => {
 });
 
 app.post('/savecart', (req, res) => {
-    analytics.track({
-      userId: req.body.userId,
-      event: 'Save for later',
-      properties: { productId: '99482' }
-    })
      res.sendStatus(201)
   });
 
