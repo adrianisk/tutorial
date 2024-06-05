@@ -8,7 +8,7 @@ app.get('/order', (req: Request, res: Response) => {
     properties: { orderId: req.body.id }
   });
 
-  res.sendStatus(201)
+  res.sendStatus(201);
 });
 
 app.post('/createorder', (req: Request, res: Response) => {
@@ -22,7 +22,7 @@ app.post('/createorder', (req: Request, res: Response) => {
       }
     });
 
-    res.sendStatus(201)
+    res.sendStatus(201);
   });
 
 app.post('/deleteorder', (req: Request, res: Response) => {
@@ -32,5 +32,5 @@ app.post('/deleteorder', (req: Request, res: Response) => {
       properties: { orderId:  req.body.id }
     });
     
-    res.sendStatus(201)
+    res.sendStatus(201);
   });
