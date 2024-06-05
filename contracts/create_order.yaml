@@ -3,7 +3,7 @@ dataAssetResourceName: "typescript://git@github.com:adrianisk/tutorial:typescrip
 doc: "Event logged when an order is created."
 name: Create order
 namespace: "demo"
-owner: "adrian@gable.ai"
+owner: "chad@gable.ai"
 schema:
   - name: orderId
     type: string
@@ -21,5 +21,5 @@ schema:
     type: enum
     symbols:
       - desktop
-      - web
+      - mobile
     doc: "The type of device the order was placed from."
