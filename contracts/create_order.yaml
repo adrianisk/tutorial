@@ -20,6 +20,6 @@ schema:
   - name: device
     type: enum
     symbols:
-      - mobile
+      - desktop
       - web
     doc: "The type of device the order was placed from."

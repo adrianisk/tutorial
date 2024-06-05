@@ -2,7 +2,7 @@ import { Request } from "express";
 import parser from "ua-parser-js";
 
 export enum DEVICE {
-  WEB = "web",
+  DESKTOP = "desktop",
   MOBILE = "mobile",
 }
 
@@ -11,5 +11,5 @@ export function getDeviceFromUserAgent(request: any): DEVICE {
   if (uaParsed.device.type === "mobile") {
     return DEVICE.MOBILE;
   }
-  return DEVICE.WEB;
+  return DEVICE.DESKTOP;
 }
