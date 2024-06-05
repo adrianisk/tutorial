@@ -17,3 +17,9 @@ schema:
   - name: userId
     type: string
     doc: "User who placed the order."
+  - name: device
+    type: enum
+    symbols:
+      - mobile
+      - web
+    doc: "The type of device the order was placed from."
