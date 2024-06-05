@@ -34,8 +34,8 @@ jobs:
         uses: gabledata/cicd/github-actions/validate-contracts@main
         with:
           # Provide API key and endpoint secrets
-          gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
-          gable-api-endpoint: ${{secrets.STABLE_GABLE_API_ENDPOINT}}
+          gable-api-key: ${{secrets.SST_API_KEY}}
+          gable-api-endpoint: ${{secrets.SST_API_ENDPOINT}}
           # List of paths to contract files that should be validated, with support for glob syntax.
           # Can either be specified as a space separated list ('contract1.yml contract2.yml'), or
           # a multiline string
@@ -46,8 +46,8 @@ jobs:
         uses: gabledata/cicd/github-actions/publish-contracts@main
         with:
           # Provide API key and endpoint secrets
-          gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
-          gable-api-endpoint: ${{secrets.STABLE_GABLE_API_ENDPOINT}}
+          gable-api-key: ${{secrets.SST_API_KEY}}
+          gable-api-endpoint: ${{secrets.SST_API_ENDPOINT}}
           # List of paths to contract files that should be published, with support for glob syntax.
           # Can either be specified as a space separated list ('contract1.yml contract2.yml'), or
           # a multiline string
@@ -97,8 +97,8 @@ jobs:
         uses: gabledata/cicd/github-actions/check-data-assets@main
         with:
             # Provide API key secret, and endpoint variable created in previous steps
-            gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
-            gable-api-endpoint: ${{secrets.STABLE_GABLE_API_ENDPOINT}}
+            gable-api-key: ${{secrets.SST_API_KEY}}
+            gable-api-endpoint: ${{secrets.SST_API_ENDPOINT}}
             # List of paths to Protobuf files that should be checked with support for glob syntax. 
             # Can either be specified as a space separated list ('event1.proto event2.proto'), or 
             # a multiline string
@@ -110,8 +110,8 @@ jobs:
         uses: gabledata/cicd/github-actions/register-data-assets@main
         with:
             # Provide API key and endpoint secrets
-            gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
-            gable-api-endpoint: ${{secrets.STABLE_GABLE_API_ENDPOINT}}
+            gable-api-key: ${{secrets.SST_API_KEY}}
+            gable-api-endpoint: ${{secrets.SST_API_ENDPOINT}}
             # List of paths to Protobuf files that should be checked with support for glob syntax. 
             # Can either be specified as a space separated list ('event1.proto event2.proto'), or 
             # a multiline string
@@ -122,8 +122,8 @@ jobs:
         uses: gabledata/cicd/github-actions/register-data-assets@main
         with:
             # Provide API key and endpoint secrets
-            gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
-            gable-api-endpoint: ${{secrets.STABLE_GABLE_API_ENDPOINT}}
+            gable-api-key: ${{secrets.SST_API_KEY}}
+            gable-api-endpoint: ${{secrets.SST_API_ENDPOINT}}
             # List of paths to Avro files that should be checked with support for glob syntax. 
             # Can either be specified as a space separated list ('event1.proto event2.proto'), or 
             # a multiline string
@@ -134,8 +134,8 @@ jobs:
         uses: gabledata/cicd/github-actions/register-data-assets@main
         with:
             # Provide API key and endpoint secrets
-            gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
-            gable-api-endpoint: ${{secrets.STABLE_GABLE_API_ENDPOINT}}
+            gable-api-key: ${{secrets.SST_API_KEY}}
+            gable-api-endpoint: ${{secrets.SST_API_ENDPOINT}}
             python-path: pyspark/.venv/bin/python
             data-asset-options: |
               --source-type pyspark \
@@ -146,8 +146,8 @@ jobs:
         uses: gabledata/cicd/github-actions/register-data-assets@main
         with:
             # Provide API key and endpoint secrets
-            gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
-            gable-api-endpoint: ${{secrets.STABLE_GABLE_API_ENDPOINT}}
+            gable-api-key: ${{secrets.SST_API_KEY}}
+            gable-api-endpoint: ${{secrets.SST_API_ENDPOINT}}
             # List of paths to Avro files that should be checked with support for glob syntax. 
             # Can either be specified as a space separated list ('event1.proto event2.proto'), or 
             # a multiline string
