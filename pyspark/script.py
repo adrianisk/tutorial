@@ -17,8 +17,12 @@ def run_job(spark, final_output_table):
     SELECT
       timestamp(date_trunc(b.confirm_time, 'DD')) AS "booking_date",
       b.earning_adjustment_commission_rate AS "commission_rate",
-      b.receipt_payment_type AS "payment_type",
-      b.reward_id AS "reward_id",
+      b.receipt_payment_type AS "payment_type",      
+      CASE 
+        WHEN b.receipt_payment_type = 'giftcard' THEN NULL 
+        ELSE b.reward_id 
+        END 
+      AS "reward_id",
       c.*,
     FROM
       bookings_30_days b
@@ -30,7 +34,7 @@ def run_job(spark, final_output_table):
   joined_df.write.mode("overwrite").saveAsTable(final_output_table)
 
   commission_rate_metrics_df = joined_df.groupBy("booking_date").agg(
-    F.avg("commission_rate").alias("avg_commission_rate"),
+    F.stddev("commission_rate").alias("stddev_commission_rate"),
     F.max("commission_rate").alias("max_commission_rate"),
     F.min("commission_rate").alias("min_commission_rate")
   )
@@ -43,10 +47,10 @@ def run_job(spark, final_output_table):
     ON m.booking_date = t.booking_date
     WHEN MATCHED THEN
       UPDATE SET
-        m.avg_commission_rate = t.avg_commission_rate,
+        m.stddev_commission_rate = t.stddev_commission_rate,
         m.max_commission_rate = t.max_commission_rate,
         m.min_commission_rate = t.min_commission_rate
     WHEN NOT MATCHED THEN
-      INSERT (booking_date, avg_commission_rate, max_commission_rate, min_commission_rate)
-      VALUES (t.booking_date, t.avg_commission_rate, t.max_commission_rate, t.min_commission_rate)
+      INSERT (booking_date, stddev_commission_rate, max_commission_rate, min_commission_rate)
+      VALUES (t.booking_date, t.stddev_commission_rate, t.max_commission_rate, t.min_commission_rate)
   """)
