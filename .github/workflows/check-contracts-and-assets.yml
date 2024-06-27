@@ -128,7 +128,7 @@ jobs:
             gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
             gable-api-endpoint: ${{secrets.STABLE_GABLE_API_ENDPOINT}}
             use-test-pypi: true
-            gable-version: "0.15.4a0"
+            gable-version: "0.15.4a2"
             python-path: pyspark_llm/.venv/bin/python
             data-asset-options: |
               --source-type pyspark \
