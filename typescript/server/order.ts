@@ -17,7 +17,7 @@ app.post('/createorder', (req: Request, res: Response) => {
       event: 'Create order',
       properties: { orderId: req.body.id, 
         numProducts: req.body.numProducts, 
-        totalCost: req.body.totalCost, 
+        totalCostCents: req.body.totalCost * 100, 
         userId: req.body.userId
       }
     });
