@@ -46,13 +46,6 @@ export default class TutorialController {
 
   async update(req: Request, res: Response) {
     try {
-      // Check that latitude and longitude were included in request
-      if(!req.body.latitude || !req.body.longitude) {
-        res.status(400).json({
-          message: "Missing latitude and longitude",
-        });
-      }
-
       // Create event using protoc generated type
       const locationEvent = VehicleLocationEvent.create({
         agencyId: req.body.agencyId,
@@ -63,7 +56,7 @@ export default class TutorialController {
         occupancyLevel: req.body.occupancyLevel,
         timestamp: new Date(),
       })
-      
+
       // Send to Kafka
       await producer.send({
         topic: 'vehicle-location-events',
