@@ -24,7 +24,11 @@ def run_job(spark, final_output_table):
           confirm_time - booking_broadcast_time AS time_to_confirm,
           commission_rate,
           earning_adjustment_commission_rate,
-          earning_adjustment_commission_rate - commission_rate AS tip,
+          CASE 
+            WHEN enable_tip
+                THEN earning_adjustment_commission_rate - commission_rate 
+            ELSE NULL 
+            END AS tip,
           tax,
           receipt_payment_type,
           confirm_time,    
