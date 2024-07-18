@@ -1,6 +1,6 @@
 name: Gable Check Contracts & Assets
 run-name: ${{ github.actor }} - Gable Check Contracts & Assets
-on: [push]
+on: [pull_request]
 permissions:
   # Required to checkout the data assets from the repo
   contents: read
@@ -29,7 +29,7 @@ jobs:
           fi
       - name: Validate Contracts
         if: ${{ env.SKIP_VALIDATION  != 'true' }}
-        uses: gabledata/cicd/github-actions/validate-contracts@63c92830687a3c0342b87d90a68840e6b666ec87
+        uses: gabledata/cicd/github-actions/validate-contracts@adriank/pr_number_input
         with:
           # Provide API key secret, and endpoint variable created in previous steps
           gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
@@ -80,7 +80,7 @@ jobs:
         run: poetry run alembic upgrade head
         shell: bash
       - name: Check TypeScript Data Assets
-        uses: gabledata/cicd/github-actions/check-data-assets@63c92830687a3c0342b87d90a68840e6b666ec87
+        uses: gabledata/cicd/github-actions/check-data-assets@adriank/pr_number_input
         with:
             # Provide API key secret, and endpoint variable created in previous steps
             gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
@@ -94,7 +94,7 @@ jobs:
               --library segment
       
       - name: Check Protobuf Data Assets
-        uses: gabledata/cicd/github-actions/check-data-assets@63c92830687a3c0342b87d90a68840e6b666ec87
+        uses: gabledata/cicd/github-actions/check-data-assets@adriank/pr_number_input
         with:
             # Provide API key secret, and endpoint variable created in previous steps
             gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
@@ -106,7 +106,7 @@ jobs:
               --source-type protobuf \
               --files ./event_schemas/*.proto
       - name: Check Avro Data Assets
-        uses: gabledata/cicd/github-actions/check-data-assets@63c92830687a3c0342b87d90a68840e6b666ec87
+        uses: gabledata/cicd/github-actions/check-data-assets@adriank/pr_number_input
         with:
             # Provide API key secret, and endpoint variable created in previous steps
             gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
@@ -118,7 +118,7 @@ jobs:
               --source-type avro \
               --files ./event_schemas/*.avsc
       - name: Check PySpark Data Assets
-        uses: gabledata/cicd/github-actions/check-data-assets@63c92830687a3c0342b87d90a68840e6b666ec87
+        uses: gabledata/cicd/github-actions/check-data-assets@adriank/pr_number_input
         with:
             # Provide API key secret, and endpoint variable created in previous steps
             gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
@@ -130,7 +130,7 @@ jobs:
               --csv-schema-file pyspark/schemas.csv \
               --spark-job-entrypoint 'job.py --final_output_table pnw_bookings_30_days' --debug
       - name: Check Postgres Data Assets
-        uses: gabledata/cicd/github-actions/check-data-assets@63c92830687a3c0342b87d90a68840e6b666ec87
+        uses: gabledata/cicd/github-actions/check-data-assets@adriank/pr_number_input
         with:
             # Provide API key secret, and endpoint variable created in previous steps
             gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
