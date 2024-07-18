@@ -1,6 +1,6 @@
 name: Gable Check Contracts & Assets
 run-name: ${{ github.actor }} - Gable Check Contracts & Assets
-on: [pull_request]
+on: [pull_request, push]
 permissions:
   # Required to checkout the data assets from the repo
   contents: read
