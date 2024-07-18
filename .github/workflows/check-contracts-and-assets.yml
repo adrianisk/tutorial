@@ -99,6 +99,7 @@ jobs:
             # Provide API key secret, and endpoint variable created in previous steps
             gable-api-key: ${{secrets.STABLE_GABLE_API_KEY}}
             gable-api-endpoint: ${{secrets.STABLE_GABLE_API_ENDPOINT}}
+            pr-number: 363
             # List of paths to Protobuf files that should be checked with support for glob syntax. 
             # Can either be specified as a space separated list ('event1.proto event2.proto'), or 
             # a multiline string
