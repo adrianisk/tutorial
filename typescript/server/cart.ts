@@ -1,32 +1,55 @@
-import { Analytics }  from '@segment/analytics-node';
-import express from 'express';
 
-export const analytics = new Analytics({ writeKey: 'MY_WRITE_KEY' })
-export const app: express.Application = express();
+import { getDeviceFromUserAgent } from './util/device';
+
+import { analytics, app } from './order';
+
 
 app.post('/cart', (req, res) => {
   analytics.track({
     userId: req.body.userId,
     event: 'Add to cart',
-    properties: { productId: '123456', quantity: '5' }
-  })
-   res.sendStatus(201)
+    properties: { 
+      productId: `${req.body.productId}`, 
+      quantity: `${req.body.quantity}`, 
+      device: getDeviceFromUserAgent(req) 
+    },
+  });
+  res.sendStatus(201);
+});
+
+app.post('/cart', (req, res) => {
+  analytics.track({
+    userId: req.body.userId,
+    event: 'Add to cart',
+    properties: { 
+      productId: `${req.body.productId}`, 
+      quantity: `${req.body.quantity}`, 
+      device: getDeviceFromUserAgent(req) 
+    },
+  });
+  res.sendStatus(201);
 });
 
 app.post('/savecart', (req, res) => {
     analytics.track({
       userId: req.body.userId,
       event: 'Save for later',
-      properties: { productId: `${req.body.productId}` }
-    })
-     res.sendStatus(201)
+      properties: { 
+        productId: `${req.body.productId}`,
+        device: getDeviceFromUserAgent(req) 
+      }
+    });
+    res.sendStatus(201);
   });
 
 app.post('/deletecart', (req, res) => {
     analytics.track({
       userId: req.body.userId,
       event: 'Delete from cart',
-      properties: { numOfProducts: req.body.numOfProducts }
-    })
-     res.sendStatus(201)
+      properties: { 
+        numOfProducts: parseInt(req.body.numOfProducts),
+        device: getDeviceFromUserAgent(req) 
+      }
+    });
+    res.sendStatus(201);
   });
