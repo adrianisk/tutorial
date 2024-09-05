@@ -8,9 +8,12 @@ app.post('/cart', (req, res) => {
   analytics.track({
     userId: req.body.userId,
     event: 'Add to cart',
-    properties: { productId: '123456', quantity: '5' }
-  })
-   res.sendStatus(201)
+    properties: { 
+      productId: req.body.productId, 
+      quantity: req.body.quantity, 
+      timestamp: new Date().toString() }
+  });
+  res.sendStatus(201);
 });
 
 app.post('/savecart', (req, res) => {
