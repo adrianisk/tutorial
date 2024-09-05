@@ -11,7 +11,7 @@ app.post('/cart', (req, res) => {
     properties: { 
       productId: req.body.productId, 
       quantity: req.body.quantity, 
-      timestamp: new Date().toString() }
+      timestamp: new Date().toLocaleString(req.body.orderLocale) }
   });
   res.sendStatus(201);
 });
